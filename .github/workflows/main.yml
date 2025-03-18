@@ -1,10 +1,13 @@
 name: Lint workflow
 
-on: 
+on:
+  push:
+    branches: [ $default-branch ]
+
+
+
 pull_request:
-  branches:
-      - develop
-      - staging
+  branches: [ $default-branch ]
 
   jobs:
     runs-on: ubuntu-latest
