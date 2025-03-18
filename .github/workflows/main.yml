@@ -3,25 +3,23 @@ name: Lint workflow
 on:
   push:
     branches: [ $default-branch ]
-
-
-
-pull_request:
-  branches: [ $default-branch ]
+  pull_request:
+    branches: [ $default-branch ]
 
   jobs:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
+    test:
+      runs-on: ubuntu-latest
+      steps:
+        - name: 🛍 Checkout code
+          uses: actions/checkout@v4
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '14'
+        - name: 🗃 Set up Node.js
+          uses: actions/setup-node@v4
+          with:
+            node-version: '14'
 
-      - name: Install dependencies
-        run: npm install
+        - name: 🧰 Install Dependencies
+          run: npm install
 
-      - name: Run ESLint
-        run: npm run lint
+        - name: 🔎 Run ESLint
+          run: npm run lint
