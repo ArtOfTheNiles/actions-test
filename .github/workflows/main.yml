@@ -2,7 +2,10 @@ name: Lint workflow
 
 on:
   push:
-    branches: [ $default-branch ]
+    branches: 
+      - develop
+      - staging
+      - main
   pull_request:
     branches: 
       - develop
